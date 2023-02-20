@@ -1,0 +1,4 @@
+pre-commit:
+  commands:
+    frontend-linter:
+      run: yarn lint
