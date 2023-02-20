@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Martian Mono";
+    src: url("./fonts/MartianMono-StdMd.woff2") format("woff2");
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Martian Mono";
+    src: url("./fonts/MartianMono-StdBd.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  body {
+    font-family: "Martian Mono", monospace;
+    font-weight: 500;
+  }
+}
