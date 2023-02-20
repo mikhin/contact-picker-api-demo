@@ -1,12 +1,13 @@
 import React from "react";
-import { Toggle } from "./components/Toggle/Toggle";
 
 import "./index.css";
+import Layout from "./components/Layout/Layout";
+import HomePage from "./components/HomePage/HomePage";
 
 export function App(): JSX.Element {
   return (
-    <div>
-      <Toggle label="test" onChange={() => {}} />
-    </div>
+    <Layout>
+      <HomePage />
+    </Layout>
   );
 }

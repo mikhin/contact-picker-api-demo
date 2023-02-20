@@ -21,4 +21,10 @@
     font-family: "Martian Mono", monospace;
     font-weight: 500;
   }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
 }
