@@ -1,0 +1,16 @@
+.checkbox {
+  @apply appearance-none w-12 h-7 bg-white inline-flex items-center ml-auto;
+  @apply border-2 border-black border-solid;
+  @apply outline-black outline-2 outline-offset-[3px];
+
+  @apply before:content-[''] before:block before:ml-0.5 before:mr-0.5;
+  @apply before:w-5 before:h-5 before:bg-white;
+  @apply before:border-2 before:border-black before:border-solid;
+
+  @apply checked:before:border-white checked:before:ml-auto;
+  @apply checked:bg-black focus:outline;
+}
+
+.checkbox:not(:focus-visible):focus {
+  @apply outline-none;
+}
