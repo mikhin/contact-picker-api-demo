@@ -12,7 +12,11 @@ module.exports = {
         turquoise: "oklch(89% 0.14 162)",
       },
       gridTemplateRows: {
-        layout: "auto 1fr auto",
+        layout: "1fr auto",
+      },
+      fontFamily: {
+        base: ["Martian Mono", "monospace"],
+        display: ["Split Check Font", "sans"],
       },
     },
   },

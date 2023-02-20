@@ -8,9 +8,9 @@ interface Props {
 
 const Layout = ({ children }: Props): JSX.Element => {
   return (
-    <div className="grid min-h-full grid-rows-layout">
-      <header />
-      <main>{children}</main>
+    <div className="grid min-h-full grid-rows-layout px-6 pb-0">
+      <main className="py-28">{children}</main>
+
       <footer
         style={{ backgroundImage: `url(${logoImage})` }}
         className={`h-9 bg-no-repeat bg-center`}
