@@ -1,9 +1,9 @@
 export enum ContactProperty {
-  "address",
-  "email",
-  "icon",
-  "name",
-  "tel",
+  "address" = "address",
+  "email" = "email",
+  "icon" = "icon",
+  "name" = "name",
+  "tel" = "tel",
 }
 
 export interface ContactAddress {
