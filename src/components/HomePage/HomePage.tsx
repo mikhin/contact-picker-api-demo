@@ -6,22 +6,27 @@ const HomePage = (): JSX.Element => {
   return (
     <ul className="grid lg:grid-cols-2">
       <li className="mb-12">
-        <PageSection title="Sorry" titleColor="text-pink">
+        <PageSection title="Sorry" titleColor="text-pink-100">
           <SettingsForm />
         </PageSection>
       </li>
       <li className="mb-12">
-        <PageSection title="Money" titleColor="text-yellow">
+        <PageSection title="Money" titleColor="text-orange">
           <SettingsForm />
         </PageSection>
       </li>
       <li className="mb-12">
-        <PageSection title="People" titleColor="text-green">
+        <PageSection title="People" titleColor="text-green-100">
           <SettingsForm />
         </PageSection>
       </li>
       <li>
-        <PageSection title="Settings" titleColor="text-turquoise">
+        <PageSection title="Settings" titleColor="text-green-200">
+          <SettingsForm />
+        </PageSection>
+      </li>
+      <li>
+        <PageSection title="Article" titleColor="text-turquoise">
           <SettingsForm />
         </PageSection>
       </li>

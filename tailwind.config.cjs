@@ -5,11 +5,14 @@ module.exports = {
     extend: {
       colors: {
         white: "oklch(100% 0 0)",
-        black: "oklch(26% 0 0)",
-        pink: "oklch(89% 0.08 0)",
-        yellow: "oklch(89% 0.14 84)",
-        green: "oklch(89% 0.14 123)",
-        turquoise: "oklch(89% 0.14 162)",
+        black: "oklch(20% 0.08 314)",
+        gray: "oklch(20% 0.08 314 / 12%)",
+        "pink-100": "oklch(89% 0.08 0)",
+        "pink-200": "oklch(89% 0.08 314)",
+        orange: "oklch(89% 0.14 84)",
+        "green-100": "oklch(89% 0.14 123)",
+        "green-200": "oklch(89% 0.13 162)",
+        turquoise: "oklch(89% 0.12 197)",
       },
       gridTemplateRows: {
         layout: "1fr auto",
