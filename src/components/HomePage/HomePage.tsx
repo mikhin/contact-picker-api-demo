@@ -2,6 +2,7 @@ import React from "react";
 import PageSection from "../PageSection/PageSection";
 import SettingsForm from "../SettingsForm/SettingsForm";
 import MoneyInput from "../MoneyInput/MoneyInput";
+import ArticleLink from "../ArticleLink/ArticleLink";
 
 const HomePage = (): JSX.Element => {
   return (
@@ -28,7 +29,7 @@ const HomePage = (): JSX.Element => {
       </li>
       <li>
         <PageSection title="Article" titleColor="text-turquoise">
-          <SettingsForm />
+          <ArticleLink />
         </PageSection>
       </li>
     </ul>
