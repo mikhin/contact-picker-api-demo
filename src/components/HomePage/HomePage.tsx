@@ -1,6 +1,7 @@
 import React from "react";
 import PageSection from "../PageSection/PageSection";
 import SettingsForm from "../SettingsForm/SettingsForm";
+import MoneyInput from "../MoneyInput/MoneyInput";
 
 const HomePage = (): JSX.Element => {
   return (
@@ -12,7 +13,7 @@ const HomePage = (): JSX.Element => {
       </li>
       <li className="mb-12">
         <PageSection title="Money" titleColor="text-orange">
-          <SettingsForm />
+          <MoneyInput />
         </PageSection>
       </li>
       <li className="mb-12">

@@ -10,7 +10,7 @@ const PageSection = ({ title, titleColor, children }: Props): JSX.Element => {
   return (
     <section className="relative flex flex-col justify-center items-center">
       <h2
-        className={`absolute top-0 font-display uppercase text-[180px] leading-[144px] ${titleColor}`}
+        className={`pointer-events-none select-none absolute top-0 font-display uppercase text-[180px] leading-[144px] ${titleColor}`}
       >
         {title}
       </h2>

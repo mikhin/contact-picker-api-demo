@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  "@nanostores/react": ^0.4.1
   "@types/react": ^18.0.27
   "@types/react-dom": ^18.0.10
   "@typescript-eslint/eslint-plugin": ^5.0.0
@@ -15,6 +16,7 @@ specifiers:
   eslint-plugin-promise: ^6.0.0
   eslint-plugin-react: ^7.32.2
   lefthook: ^1.2.9
+  nanostores: ^0.7.4
   postcss: ^8.4.21
   postcss-preset-env: ^8.0.1
   prettier: ^2.8.4
@@ -25,6 +27,8 @@ specifiers:
   vite: ^4.1.0
 
 dependencies:
+  "@nanostores/react": 0.4.1_nkfnbc2tpc77iht7asm3uqwau4
+  nanostores: 0.7.4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -1047,6 +1051,21 @@ packages:
       "@jridgewell/resolve-uri": 3.1.0
       "@jridgewell/sourcemap-codec": 1.4.14
     dev: true
+
+  /@nanostores/react/0.4.1_nkfnbc2tpc77iht7asm3uqwau4:
+    resolution:
+      {
+        integrity: sha512-lsv0CYrMxczbXtoV/mxFVEoL/uVjEjseoP89srO/5yNAOkJka+dSFS7LYyWEbuvCPO7EgbtkvRpO5V+OztKQOw==,
+      }
+    engines: { node: ^14.0.0 || ^16.0.0 || >=18.0.0 }
+    peerDependencies:
+      nanostores: ^0.7.0
+      react: ">=18.0.0"
+    dependencies:
+      nanostores: 0.7.4
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution:
@@ -3293,6 +3312,14 @@ packages:
     hasBin: true
     dev: true
 
+  /nanostores/0.7.4:
+    resolution:
+      {
+        integrity: sha512-MBeUVt7NBcXqh7AGT+KSr3O0X/995CZsvcP2QEMP+PXFwb07qv3Vjyq+EX0yS8f12Vv3Tn2g/BvK/OZoMhJlOQ==,
+      }
+    engines: { node: ^14.0.0 || ^16.0.0 || >=18.0.0 }
+    dev: false
+
   /natural-compare-lite/1.4.0:
     resolution:
       {
@@ -4585,6 +4612,17 @@ packages:
     dependencies:
       punycode: 2.3.0
     dev: true
+
+  /use-sync-external-store/1.2.0_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /util-deprecate/1.0.2:
     resolution:
