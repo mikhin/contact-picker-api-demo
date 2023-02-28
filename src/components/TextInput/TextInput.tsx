@@ -23,7 +23,7 @@ const TextInput = ({
       <input
         className="w-full rounded-none border-2 border-black bg-transparent p-4
           text-center text-6xl outline-2
-          outline-offset-[3px] outline-black placeholder:text-center
+          outline-offset-[6px] outline-black placeholder:text-center
           "
         placeholder={placeholder}
         name={name}
