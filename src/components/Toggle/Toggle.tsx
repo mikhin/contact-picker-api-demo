@@ -22,10 +22,10 @@ export const Toggle = ({
   return (
     <label
       className={
-        "py-3 px-4 w-full flex items-center active:bg-gray-300 border-2 border-black"
+        "active:bg-gray-300 flex w-full items-center border-2 border-black py-3 px-4"
       }
     >
-      <span className="mr-2 text-small text-black">{label}</span>
+      <span className="text-small mr-2 text-black">{label}</span>
 
       <input
         type="checkbox"

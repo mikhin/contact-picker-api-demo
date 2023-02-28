@@ -1,13 +1,13 @@
 .checkbox {
-  @apply appearance-none w-12 h-7 bg-white inline-flex items-center ml-auto;
-  @apply border-2 border-black border-solid;
-  @apply outline-black outline-2 outline-offset-[3px];
+  @apply ml-auto inline-flex h-7 w-12 appearance-none items-center bg-white;
+  @apply border-2 border-solid border-black;
+  @apply outline-2 outline-offset-[3px] outline-black;
 
-  @apply before:content-[''] before:block before:ml-0.5 before:mr-0.5;
-  @apply before:w-5 before:h-5 before:bg-white;
-  @apply before:border-2 before:border-black before:border-solid;
+  @apply before:ml-0.5 before:mr-0.5 before:block before:content-[''];
+  @apply before:h-5 before:w-5 before:bg-white;
+  @apply before:border-2 before:border-solid before:border-black;
 
-  @apply checked:before:border-white checked:before:ml-auto;
+  @apply checked:before:ml-auto checked:before:border-white;
   @apply checked:bg-black focus:outline;
 }
 

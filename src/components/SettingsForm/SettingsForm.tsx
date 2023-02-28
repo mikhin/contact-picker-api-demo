@@ -21,7 +21,7 @@ const SettingsForm = (): JSX.Element => {
 
       {contactProperties.map((property) => {
         return (
-          <li key={property} className="mb-[-2px] last:mb-0 capitalize">
+          <li key={property} className="mb-[-2px] capitalize last:mb-0">
             <Toggle
               id={property}
               label={property}

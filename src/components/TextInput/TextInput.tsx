@@ -21,9 +21,9 @@ const TextInput = ({
     <label>
       <span className="sr-only">{label}</span>
       <input
-        className="w-full text-6xl text-center p-4 bg-transparent placeholder:text-center
-          border-2 border-black rounded-none
-          outline-black outline-2 outline-offset-[3px]
+        className="w-full rounded-none border-2 border-black bg-transparent p-4
+          text-center text-6xl outline-2
+          outline-offset-[3px] outline-black placeholder:text-center
           "
         placeholder={placeholder}
         name={name}

@@ -13,8 +13,12 @@ const Layout = ({ children }: Props): JSX.Element => {
 
       <footer
         style={{ backgroundImage: `url(${logoImage})` }}
-        className={`h-9 bg-no-repeat bg-center`}
-      />
+        className={`bg-center bg-no-repeat`}
+      >
+        <p className="pointer-events-none select-none text-center font-display text-7xl uppercase text-pink-200">
+          Evil Martians
+        </p>
+      </footer>
     </div>
   );
 };

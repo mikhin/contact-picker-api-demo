@@ -8,14 +8,14 @@ interface Props {
 
 const PageSection = ({ title, titleColor, children }: Props): JSX.Element => {
   return (
-    <section className="relative flex flex-col justify-center items-center">
+    <section className="relative flex flex-col items-center justify-center">
       <h2
-        className={`pointer-events-none select-none absolute top-0 font-display uppercase text-[180px] leading-[144px] ${titleColor}`}
+        className={`pointer-events-none absolute top-0 select-none font-display text-[180px] uppercase leading-[144px] ${titleColor}`}
       >
         {title}
       </h2>
 
-      <div className="relative z-10 px-4 pt-12 w-full">{children}</div>
+      <div className="relative z-10 w-full px-4 pt-12">{children}</div>
     </section>
   );
 };
