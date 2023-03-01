@@ -3,13 +3,15 @@ import PageSection from "../PageSection/PageSection";
 import SettingsForm from "../SettingsForm/SettingsForm";
 import MoneyInput from "../MoneyInput/MoneyInput";
 import ArticleLink from "../ArticleLink/ArticleLink";
+import ContactsList from "../ContactsList/ContactsList";
+import ApiNotAvailableMessage from "../ApiNotAvailableMessage/ApiNotAvailableMessage";
 
 const HomePage = (): JSX.Element => {
   return (
     <ul className="grid lg:grid-cols-2">
       <li className="mb-12">
         <PageSection title="Sorry" titleColor="text-pink-100">
-          <SettingsForm />
+          <ApiNotAvailableMessage />
         </PageSection>
       </li>
       <li className="mb-12">
@@ -19,7 +21,7 @@ const HomePage = (): JSX.Element => {
       </li>
       <li className="mb-12">
         <PageSection title="People" titleColor="text-green-100">
-          <SettingsForm />
+          <ContactsList />
         </PageSection>
       </li>
       <li>
