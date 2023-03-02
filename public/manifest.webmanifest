@@ -1,0 +1,19 @@
+{
+  "name": "Contact Picker API Demo",
+  "short_name": "Contact Picker API Demo",
+  "display": "standalone",
+  "description": "An API (or Browser API) to give one-off access to a user’s contact information with full control over the shared data.",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
