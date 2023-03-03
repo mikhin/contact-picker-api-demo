@@ -18,4 +18,5 @@
 .checkbox_disabled {
   @apply border-gray;
   @apply before:border-gray;
+  @apply checked:bg-gray;
 }
