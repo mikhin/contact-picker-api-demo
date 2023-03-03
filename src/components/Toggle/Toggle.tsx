@@ -2,19 +2,19 @@ import React, { useCallback } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 
-interface FieldCheckboxProps {
-  id: string;
+interface FieldCheckboxProps<T extends string> {
+  id: T;
   label: string;
-  onChange: (id: string, isChecked: boolean) => void;
+  onChange: (id: T, isChecked: boolean) => void;
   isDisabled?: boolean;
 }
 
-export const Toggle = ({
+export function Toggle<T extends string>({
   id,
   label,
   onChange,
   isDisabled,
-}: FieldCheckboxProps): JSX.Element => {
+}: FieldCheckboxProps<T>): JSX.Element {
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange(id, e.target.checked);
@@ -47,4 +47,4 @@ export const Toggle = ({
       />
     </label>
   );
-};
+}

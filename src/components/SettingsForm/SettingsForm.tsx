@@ -2,13 +2,19 @@ import React, { useCallback } from "react";
 import { ContactProperty } from "../../types";
 import { Toggle } from "../Toggle/Toggle";
 import { isContactsSupported } from "../../constants";
+import { type SettingsKeys, settingsStore } from "../../stores/settings-store";
 
 const SettingsForm = (): JSX.Element => {
-  const contactProperties = Object.keys(ContactProperty);
+  const contactProperties = Object.keys(ContactProperty) as Array<
+    keyof typeof ContactProperty
+  >;
 
-  const handleOptionChange = useCallback((id: string, isChecked: boolean) => {
-    console.log(id, isChecked);
-  }, []);
+  const handleOptionChange = useCallback(
+    (id: SettingsKeys, isChecked: boolean) => {
+      settingsStore.setKey(id, isChecked);
+    },
+    []
+  );
 
   return (
     <ul className="w-full">
