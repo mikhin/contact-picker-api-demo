@@ -7,6 +7,7 @@ interface FieldCheckboxProps<T extends string> {
   label: string;
   onChange: (id: T, isChecked: boolean) => void;
   isDisabled?: boolean;
+  isChecked: boolean;
 }
 
 export function Toggle<T extends string>({
@@ -14,6 +15,7 @@ export function Toggle<T extends string>({
   label,
   onChange,
   isDisabled,
+  isChecked,
 }: FieldCheckboxProps<T>): JSX.Element {
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,6 +39,7 @@ export function Toggle<T extends string>({
       </span>
 
       <input
+        checked={isChecked}
         disabled={isDisabled}
         type="checkbox"
         onChange={handleChange}

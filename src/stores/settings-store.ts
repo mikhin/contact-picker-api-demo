@@ -8,6 +8,6 @@ export const settingsStore = map<Record<SettingsKeys, boolean>>({
   address: false,
   email: false,
   icon: false,
-  name: false,
-  tel: false,
+  name: true,
+  tel: true,
 });

@@ -4,13 +4,19 @@ import Button from "../Button/Button";
 import ContactsTable from "../ContactsTable/ContactsTable";
 import { contactsStore } from "../../stores/contacts-store";
 import { isContactsSupported } from "../../constants";
+import { settingsStore } from "../../stores/settings-store";
 
 const ContactsList = (): JSX.Element => {
   const contacts = useStore(contactsStore);
+  const settings = useStore(settingsStore);
+  const nothingSelected = Object.values(settings).every((value) => !value);
 
   return (
     <div>
-      <Button isDisabled={!isContactsSupported} onClick={() => {}}>
+      <Button
+        isDisabled={!isContactsSupported || nothingSelected}
+        onClick={() => {}}
+      >
         Pick
       </Button>
 

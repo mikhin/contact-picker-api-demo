@@ -3,8 +3,12 @@ import { ContactProperty } from "../../types";
 import { Toggle } from "../Toggle/Toggle";
 import { isContactsSupported } from "../../constants";
 import { type SettingsKeys, settingsStore } from "../../stores/settings-store";
+import { useStore } from "@nanostores/react";
 
 const SettingsForm = (): JSX.Element => {
+  const settings = useStore(settingsStore);
+  const nothingSelected = Object.values(settings).every((value) => !value);
+
   const contactProperties = Object.keys(ContactProperty) as Array<
     keyof typeof ContactProperty
   >;
@@ -17,29 +21,40 @@ const SettingsForm = (): JSX.Element => {
   );
 
   return (
-    <ul className="w-full">
-      <li className="mb-[-2px]">
-        <Toggle
-          isDisabled={!isContactsSupported}
-          id="multiple"
-          label="Multiple results"
-          onChange={handleOptionChange}
-        />
-      </li>
+    <div>
+      <ul className="w-full">
+        <li className="mb-[-2px]">
+          <Toggle
+            isChecked={settings.multiple}
+            isDisabled={!isContactsSupported}
+            id="multiple"
+            label="Multiple results"
+            onChange={handleOptionChange}
+          />
+        </li>
 
-      {contactProperties.map((property) => {
-        return (
-          <li key={property} className="mb-[-2px] capitalize last:mb-0">
-            <Toggle
-              isDisabled={!isContactsSupported}
-              id={property}
-              label={property}
-              onChange={handleOptionChange}
-            />
-          </li>
-        );
-      })}
-    </ul>
+        {contactProperties.map((property) => {
+          return (
+            <li key={property} className="mb-[-2px] capitalize last:mb-0">
+              <Toggle
+                isChecked={settings[property]}
+                isDisabled={!isContactsSupported}
+                id={property}
+                label={property}
+                onChange={handleOptionChange}
+              />
+            </li>
+          );
+        })}
+      </ul>
+
+      {nothingSelected && (
+        <h3 className="mt-4 text-xs">
+          Please select which properties will be selected for contacts from the
+          user&apos;s address book.
+        </h3>
+      )}
+    </div>
   );
 };
 
