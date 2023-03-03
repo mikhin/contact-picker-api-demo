@@ -3,9 +3,12 @@ import { type ContactInfo } from "../../types";
 
 interface Props {
   contacts: ContactInfo[];
+  isDisabled?: boolean;
 }
 
-const ContactsTable = ({ contacts }: Props): JSX.Element => {
+const ContactsTable = ({ contacts, isDisabled }: Props): JSX.Element => {
+  console.log(isDisabled);
+
   return (
     <table>
       {contacts.map((contact) => {

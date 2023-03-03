@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@nanostores/react": "^0.4.1",
+    "clsx": "^1.2.1",
     "nanostores": "^0.7.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
