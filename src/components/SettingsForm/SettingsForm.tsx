@@ -1,5 +1,5 @@
-import React, { useCallback } from "react";
-import { ContactProperty } from "../../types";
+import React, { useCallback, useEffect, useState } from "react";
+import { type ContactProperty } from "../../types";
 import { Toggle } from "../Toggle/Toggle";
 import { isContactsSupported } from "../../constants";
 import {
@@ -12,10 +12,9 @@ import { useStore } from "@nanostores/react";
 const SettingsForm = (): JSX.Element => {
   const settings = useStore(settingsStore);
   const ifSettingsNotSelected = useStore(ifSettingsNotSelectedStore);
-
-  const contactProperties = Object.keys(ContactProperty) as Array<
+  const [contactProperties, setContactProperties] = useState<Array<
     keyof typeof ContactProperty
-  >;
+  > | null>(null);
 
   const handleOptionChange = useCallback(
     (id: SettingsKeys, isChecked: boolean) => {
@@ -23,6 +22,15 @@ const SettingsForm = (): JSX.Element => {
     },
     []
   );
+
+  useEffect(() => {
+    async function checkPropertiesSupport(): Promise<void> {
+      const supportedProperties = await navigator.contacts.getProperties();
+      setContactProperties(supportedProperties);
+    }
+
+    void checkPropertiesSupport();
+  }, []);
 
   return (
     <div>
@@ -37,7 +45,7 @@ const SettingsForm = (): JSX.Element => {
           />
         </li>
 
-        {contactProperties.map((property) => {
+        {contactProperties?.map((property) => {
           return (
             <li key={property} className="mb-[-2px] capitalize last:mb-0">
               <Toggle
