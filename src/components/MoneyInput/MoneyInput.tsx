@@ -12,8 +12,6 @@ const MoneyInput = (): JSX.Element => {
     if (newValue >= 0) billAmountStore.set(newValue);
   };
 
-  console.log(!isContactsSupported);
-
   return (
     <TextInput
       isDisabled={!isContactsSupported}

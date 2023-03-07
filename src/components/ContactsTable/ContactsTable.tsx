@@ -6,9 +6,7 @@ interface Props {
   isDisabled?: boolean;
 }
 
-const ContactsTable = ({ contacts, isDisabled }: Props): JSX.Element => {
-  console.log(isDisabled);
-
+const ContactsTable = ({ contacts }: Props): JSX.Element => {
   return (
     <table>
       {contacts.map((contact) => {

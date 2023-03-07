@@ -2,12 +2,16 @@ import React, { useCallback } from "react";
 import { ContactProperty } from "../../types";
 import { Toggle } from "../Toggle/Toggle";
 import { isContactsSupported } from "../../constants";
-import { type SettingsKeys, settingsStore } from "../../stores/settings-store";
+import {
+  ifSettingsNotSelectedStore,
+  type SettingsKeys,
+  settingsStore,
+} from "../../stores/settings-store";
 import { useStore } from "@nanostores/react";
 
 const SettingsForm = (): JSX.Element => {
   const settings = useStore(settingsStore);
-  const nothingSelected = Object.values(settings).every((value) => !value);
+  const ifSettingsNotSelected = useStore(ifSettingsNotSelectedStore);
 
   const contactProperties = Object.keys(ContactProperty) as Array<
     keyof typeof ContactProperty
@@ -48,7 +52,7 @@ const SettingsForm = (): JSX.Element => {
         })}
       </ul>
 
-      {nothingSelected && (
+      {ifSettingsNotSelected && (
         <h3 className="mt-4 text-xs">
           Please select which properties will be selected for contacts from the
           user&apos;s address book.
