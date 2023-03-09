@@ -22,11 +22,11 @@ export interface ContactAddress {
 }
 
 export interface ContactInfo {
-  address: ContactAddress[];
-  email: string[];
-  icon: Blob[];
-  name: string[];
-  tel: string[];
+  address?: ContactAddress[];
+  email?: string[];
+  icon?: Blob[];
+  name?: string[];
+  tel?: string[];
 }
 
 export interface ContactsSelectOptions {

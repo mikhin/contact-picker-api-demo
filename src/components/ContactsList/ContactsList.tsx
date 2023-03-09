@@ -16,20 +16,24 @@ const ContactsList = (): JSX.Element => {
   const selectedProperties = useStore(selectedPropertiesStore);
   const ifSettingsNotSelected = useStore(ifSettingsNotSelectedStore);
 
-  const handlePickClick = useCallback(() => {
-    void navigator.contacts.select(selectedProperties, {
+  const handlePickClick = useCallback(async () => {
+    const contacts = await navigator.contacts.select(selectedProperties, {
       multiple: settings.multiple,
     });
+
+    contactsStore.set(contacts);
   }, [settings]);
 
   return (
     <div>
-      <Button
-        isDisabled={!isContactsSupported || ifSettingsNotSelected}
-        onClick={handlePickClick}
-      >
-        Pick
-      </Button>
+      {contacts === null && (
+        <Button
+          isDisabled={!isContactsSupported || ifSettingsNotSelected}
+          onClick={handlePickClick}
+        >
+          Pick
+        </Button>
+      )}
 
       {contacts != null && (
         <ContactsTable isDisabled={!isContactsSupported} contacts={contacts} />
