@@ -11,10 +11,12 @@ import {
 } from "../../stores/settings-store";
 
 const ContactsList = (): JSX.Element => {
+  const ifSettingsNotSelected = useStore(ifSettingsNotSelectedStore);
+  const selectedProperties = useStore(selectedPropertiesStore);
   const contacts = useStore(contactsStore);
   const settings = useStore(settingsStore);
-  const selectedProperties = useStore(selectedPropertiesStore);
-  const ifSettingsNotSelected = useStore(ifSettingsNotSelectedStore);
+
+  const isDisabled = !isContactsSupported || ifSettingsNotSelected;
 
   const handlePickClick = useCallback(async () => {
     const contacts = await navigator.contacts.select(selectedProperties, {
@@ -30,14 +32,19 @@ const ContactsList = (): JSX.Element => {
 
   return (
     <div>
-      {(contacts === null || contacts.length === 0) && (
-        <Button
-          size="lg"
-          isDisabled={!isContactsSupported || ifSettingsNotSelected}
-          onClick={handlePickClick}
-        >
-          Pick
-        </Button>
+      {contacts === null && (
+        <>
+          <Button size="lg" isDisabled={isDisabled} onClick={handlePickClick}>
+            Pick
+          </Button>
+          <h3
+            className={`mt-4 text-center text-xs ${
+              isDisabled ? "text-gray" : ""
+            }`}
+          >
+            This demo does not keep any of your data. At all.
+          </h3>
+        </>
       )}
 
       {contacts != null && contacts.length > 0 && (
@@ -56,7 +63,12 @@ const ContactsList = (): JSX.Element => {
       )}
 
       {contacts?.length === 0 && (
-        <p className="pt-3 text-center">No contacts selected</p>
+        <>
+          <p className="mb-3 pt-3 text-center">No contacts selected</p>
+          <Button size="m" onClick={handleResetClick}>
+            Clear
+          </Button>
+        </>
       )}
     </div>
   );
