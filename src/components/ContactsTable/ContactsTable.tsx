@@ -14,64 +14,60 @@ const ContactsTable = ({ contacts }: Props): JSX.Element => {
   return (
     <table className="w-full border-2">
       <tbody>
-        {contacts.map((contact) => {
+        {contacts.map((contact, index) => {
+          const isNameExists = contact.name != null && contact.name?.length > 0;
+          const isIconExists = contact.icon != null && contact.icon.length > 0;
+          const isTelExists = contact.tel != null && contact.tel?.length > 0;
+          const isEmailExists =
+            contact.email != null && contact.email?.length > 0;
+          const isAddressExists =
+            contact.address != null && contact.address?.length > 0;
+
           const key =
             contact?.name?.[0] ?? contact?.email?.[0] ?? contact?.tel?.[0];
-          const contactPropertiesCount = Object.values(contact).filter(
-            (value) => value.length > 0
-          ).length;
 
           return (
             <tr key={key}>
-              {contact.icon != null ||
-                (contact.name != null && (
-                  <td
-                    className="border-2 p-3 text-center"
-                    colSpan={contactPropertiesCount}
-                  >
-                    {contact.icon != null ? (
-                      <img alt="" />
-                    ) : (
+              {(isIconExists || isNameExists) && (
+                <td className="border-2 p-3 text-center">
+                  {(contact.icon != null ? <img alt="" /> : null) ??
+                    (contact.name != null ? (
                       <span className="inline-block h-9 w-9 rounded-full bg-black p-1 text-xl text-white">
-                        {contact.name?.[0][0]}
+                        {contact.name[0][0]}
                       </span>
-                    )}
-                  </td>
-                ))}
+                    ) : null)}
+                </td>
+              )}
 
               <td className="border-2">
-                <table className="mb-[-3px] w-full">
+                <table className="w-full">
                   <tbody>
-                    {contact.name?.length != null &&
-                      contact.name?.length > 0 && (
-                        <tr>
-                          <td className="border-b-2 pt-2 pr-3 pb-2 pl-4 text-xl">
-                            {contact.name[0]}
-                          </td>
-                        </tr>
-                      )}
+                    <tr className="group">
+                      <td className="break-all border-b-2 pt-2 pr-3 pb-2 pl-4 text-xl group-last:border-b-0">
+                        {contact.name?.[0] ?? `Person ${index + 1}`}
+                      </td>
+                    </tr>
 
-                    {contact.email?.length != null &&
-                      contact.email?.length > 0 && (
-                        <tr>
-                          <td className="border-b-2 pt-2 pr-3 pb-2 pl-4">
-                            {contact.email[0]}
-                          </td>
-                        </tr>
-                      )}
-
-                    {contact.tel?.length != null && contact.tel?.length > 0 && (
-                      <tr>
-                        <td className="border-b-2 pt-2 pr-3 pb-2 pl-4">
-                          {contact.tel[0]}
+                    {isEmailExists && (
+                      <tr className="group">
+                        <td className="break-all border-b-2 pt-2 pr-3 pb-2 pl-4 group-last:border-b-0">
+                          {contact.email?.[0]}
                         </td>
                       </tr>
                     )}
 
-                    {contact.address != null && (
-                      <tr>
-                        <td className="border-b-2 pt-2 pr-3 pb-2 pl-4">
-                          {contact.address[0].addressLine}
+                    {isTelExists && (
+                      <tr className="group">
+                        <td className="break-all border-b-2 pt-2 pr-3 pb-2 pl-4 group-last:border-b-0">
+                          {contact.tel?.[0]}
+                        </td>
+                      </tr>
+                    )}
+
+                    {isAddressExists && (
+                      <tr className="group">
+                        <td className="break-all border-b-2 pt-2 pr-3 pb-2 pl-4 group-last:border-b-0">
+                          {contact.address?.[0].addressLine}
                         </td>
                       </tr>
                     )}
@@ -79,10 +75,7 @@ const ContactsTable = ({ contacts }: Props): JSX.Element => {
                 </table>
               </td>
 
-              <td
-                className="border-2 p-3 text-center text-3xl"
-                colSpan={contactPropertiesCount}
-              >
+              <td className="border-2 p-3 text-center text-3xl">
                 {billAmountPerPerson}
               </td>
             </tr>

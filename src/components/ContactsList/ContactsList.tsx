@@ -24,10 +24,15 @@ const ContactsList = (): JSX.Element => {
     contactsStore.set(contacts);
   }, [settings]);
 
+  const handleResetClick = useCallback(async () => {
+    contactsStore.set(null);
+  }, []);
+
   return (
     <div>
-      {contacts === null && (
+      {(contacts === null || contacts.length === 0) && (
         <Button
+          size="lg"
           isDisabled={!isContactsSupported || ifSettingsNotSelected}
           onClick={handlePickClick}
         >
@@ -35,8 +40,23 @@ const ContactsList = (): JSX.Element => {
         </Button>
       )}
 
-      {contacts != null && (
-        <ContactsTable isDisabled={!isContactsSupported} contacts={contacts} />
+      {contacts != null && contacts.length > 0 && (
+        <>
+          <div className="pb-3">
+            <ContactsTable
+              isDisabled={!isContactsSupported}
+              contacts={contacts}
+            />
+          </div>
+
+          <Button size="m" onClick={handleResetClick}>
+            Clear
+          </Button>
+        </>
+      )}
+
+      {contacts?.length === 0 && (
+        <p className="pt-3 text-center">No contacts selected</p>
       )}
     </div>
   );

@@ -8,7 +8,7 @@ interface Props {
 
 const Layout = ({ children }: Props): JSX.Element => {
   return (
-    <div className="mx-auto grid min-h-full max-w-4xl grid-rows-layout px-6 pb-0">
+    <div className="mx-auto grid min-h-full max-w-4xl grid-rows-layout px-3 pb-0">
       <main className="py-16">{children}</main>
 
       <footer className={"flex flex-col items-center"}>
