@@ -15,19 +15,19 @@ const PageSection = ({
 }: Props): JSX.Element => {
   return (
     <section
-      className={`relative flex flex-col items-center justify-center pb-8 lg:pb-14 ${
+      className={`relative flex min-h-[150px] flex-col items-center justify-start lg:min-h-[200px] lg:pb-14 ${
         isDisabled === true ? "pointer-events-none select-none" : ""
       }`}
     >
       <h2
-        className={`pointer-events-none select-none font-display text-[180px] uppercase leading-[150px] lg:text-[250px] lg:leading-[200px]
+        className={`pointer-events-none absolute top-0 select-none font-display text-[180px] uppercase leading-[150px] lg:text-[250px] lg:leading-[200px]
           ${isDisabled === true ? "text-gray" : titleColor}
         `}
       >
         {title}
       </h2>
 
-      <div className="mt-[-120px] w-full px-4 lg:mt-[-150px]">{children}</div>
+      <div className="z-1 relative mt-8 w-full px-4 lg:mt-14">{children}</div>
     </section>
   );
 };
