@@ -25,8 +25,14 @@ const SettingsForm = (): JSX.Element => {
 
   useEffect(() => {
     async function checkPropertiesSupport(): Promise<void> {
-      const supportedProperties = await navigator.contacts.getProperties();
-      setContactProperties(supportedProperties);
+      try {
+        const supportedProperties = await navigator.contacts.getProperties();
+        setContactProperties(supportedProperties);
+      } catch {
+        console.warn(
+          "This browser doesn’t support the Contact Picker API, which required for this demo."
+        );
+      }
     }
 
     void checkPropertiesSupport();
