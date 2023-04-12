@@ -10,25 +10,35 @@ import {
 } from "../../stores/settings-store";
 import Button from "../Button/Button";
 import ContactsTable from "../ContactsTable/ContactsTable";
+import Dialog from "../Dialog/Dialog";
 
 const ContactsList = (): JSX.Element => {
   const ifSettingsNotSelected = useStore(ifSettingsNotSelectedStore);
   const selectedProperties = useStore(selectedPropertiesStore);
   const contacts = useStore(contactsStore);
   const settings = useStore(settingsStore);
+  const [isModalErrorOpened, setIsModalErrorOpened] = React.useState(false);
 
   const isDisabled = !isContactsSupported || ifSettingsNotSelected;
 
   const handlePickClick = useCallback(async () => {
-    const contacts = await navigator.contacts.select(selectedProperties, {
-      multiple: settings.multiple,
-    });
+    try {
+      const contacts = await navigator.contacts.select(selectedProperties, {
+        multiple: settings.multiple,
+      });
 
-    contactsStore.set(contacts);
+      contactsStore.set(contacts);
+    } catch (error) {
+      setIsModalErrorOpened(true);
+    }
   }, [settings]);
 
   const handleResetClick = useCallback(async () => {
     contactsStore.set(null);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsModalErrorOpened(false);
   }, []);
 
   return (
@@ -38,13 +48,6 @@ const ContactsList = (): JSX.Element => {
           <Button size="lg" isDisabled={isDisabled} onClick={handlePickClick}>
             Pick
           </Button>
-          {/* <h3
-            className={`mt-4 text-center text-xs ${
-              isDisabled ? "text-gray" : ""
-            }`}
-          >
-            This demo does not keep any of your data. At all.
-          </h3> */}
         </>
       )}
 
@@ -71,6 +74,14 @@ const ContactsList = (): JSX.Element => {
           </Button>
         </>
       )}
+
+      <Dialog
+        opened={isModalErrorOpened}
+        onClose={handleClose}
+        label="Something went wrong"
+      >
+        <p>Something went wrong.</p>
+      </Dialog>
     </div>
   );
 };
