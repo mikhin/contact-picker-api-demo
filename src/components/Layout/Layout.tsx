@@ -1,5 +1,6 @@
 import React from "react";
 
+import evilMartiansTextImage from "../../assets/images/evil-martians.svg";
 import logoImage from "../../assets/images/logo.svg";
 
 interface Props {
@@ -12,16 +13,8 @@ const Layout = ({ children }: Props): JSX.Element => {
       <main className="py-16">{children}</main>
 
       <footer className={"flex flex-col items-center"}>
-        <p className="pointer-events-none select-none font-display text-7xl uppercase text-pink-200">
-          Evil Martians
-        </p>
-        <img
-          width="88px"
-          height="38px"
-          className="mt-[-32px]"
-          src={logoImage}
-          alt="Evil Martians logotype"
-        />
+        <div dangerouslySetInnerHTML={{ __html: evilMartiansTextImage }} />
+        <div dangerouslySetInnerHTML={{ __html: logoImage }} />
       </footer>
     </div>
   );

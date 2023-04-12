@@ -1,33 +1,33 @@
 import React from "react";
 
 interface Props {
-  title: string;
-  titleColor: string;
+  icon: string;
   children: React.ReactNode;
   isDisabled?: boolean;
+  minHeight: number;
 }
 
 const PageSection = ({
-  title,
-  titleColor,
   children,
   isDisabled,
+  icon,
+  minHeight,
 }: Props): JSX.Element => {
   return (
     <section
-      className={`relative flex min-h-[150px] flex-col items-center justify-start lg:min-h-[200px] lg:pb-14 ${
+      className={`relative pt-[1px] ${
         isDisabled === true ? "pointer-events-none select-none" : ""
       }`}
+      style={{
+        minHeight: `${minHeight}px`,
+      }}
     >
-      <h2
-        className={`pointer-events-none absolute top-0 select-none font-display text-[180px] uppercase leading-[150px] lg:text-[250px] lg:leading-[200px]
-          ${isDisabled === true ? "text-gray" : titleColor}
-        `}
-      >
-        {title}
-      </h2>
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 transform"
+        dangerouslySetInnerHTML={{ __html: icon }}
+      />
 
-      <div className="z-1 relative mt-8 w-full px-4 lg:mt-14">{children}</div>
+      <div className="z-1 relative w-full lg:px-8">{children}</div>
     </section>
   );
 };

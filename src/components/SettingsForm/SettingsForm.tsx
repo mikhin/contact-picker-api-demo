@@ -1,13 +1,14 @@
+import { useStore } from "@nanostores/react";
 import React, { useCallback, useEffect, useState } from "react";
-import { type ContactProperty } from "../../types";
-import { Toggle } from "../Toggle/Toggle";
+
 import { isContactsSupported } from "../../constants";
 import {
   ifSettingsNotSelectedStore,
   type SettingsKeys,
   settingsStore,
 } from "../../stores/settings-store";
-import { useStore } from "@nanostores/react";
+import { type ContactProperty } from "../../types";
+import { Toggle } from "../Toggle/Toggle";
 
 const SettingsForm = (): JSX.Element => {
   const settings = useStore(settingsStore);

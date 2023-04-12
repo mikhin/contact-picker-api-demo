@@ -1,8 +1,9 @@
-import React from "react";
 import { useStore } from "@nanostores/react";
-import TextInput from "../TextInput/TextInput";
-import { billAmountStore } from "../../stores/bill-amount-store";
+import React from "react";
+
 import { isContactsSupported } from "../../constants";
+import { billAmountStore } from "../../stores/bill-amount-store";
+import TextInput from "../TextInput/TextInput";
 
 const MoneyInput = (): JSX.Element => {
   const value = String(useStore(billAmountStore));

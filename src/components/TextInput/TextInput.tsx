@@ -20,7 +20,7 @@ const TextInput = ({
   isDisabled,
 }: Props): JSX.Element => {
   return (
-    <label>
+    <label className="block">
       <span className="sr-only">{label}</span>
       <input
         className={`w-full rounded-none border-2 bg-transparent

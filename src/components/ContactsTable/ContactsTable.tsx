@@ -1,7 +1,8 @@
-import React from "react";
 import { useStore } from "@nanostores/react";
-import { type ContactInfo } from "../../types";
+import React from "react";
+
 import { billAmountPerPersonStore } from "../../stores/bill-amount-store";
+import { type ContactInfo } from "../../types";
 
 interface Props {
   contacts: ContactInfo[];

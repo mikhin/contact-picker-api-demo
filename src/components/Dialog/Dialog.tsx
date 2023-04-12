@@ -1,5 +1,5 @@
-import * as React from "react";
 import { DialogContent, DialogOverlay } from "@reach/dialog";
+import * as React from "react";
 
 interface DialogProps {
   children: React.ReactNode;

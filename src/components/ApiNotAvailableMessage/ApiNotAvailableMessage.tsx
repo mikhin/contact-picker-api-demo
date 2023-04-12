@@ -1,4 +1,5 @@
 import React, { type MouseEvent, useCallback } from "react";
+
 import ActivationTip from "../ActivationTip/ActivationTip";
 import Dialog from "../Dialog/Dialog";
 

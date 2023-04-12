@@ -1,4 +1,5 @@
 import { atom, computed } from "nanostores";
+
 import { contactsStore } from "./contacts-store";
 
 export const billAmountStore = atom<number>(0);

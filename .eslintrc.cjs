@@ -10,7 +10,7 @@ module.exports = {
     sourceType: "module",
     project: "./tsconfig.json",
   },
-  plugins: ["react"],
+  plugins: ["react", "simple-import-sort"],
   settings: {
     react: {
       version: "detect",
@@ -25,5 +25,7 @@ module.exports = {
         },
       },
     ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
   },
 };

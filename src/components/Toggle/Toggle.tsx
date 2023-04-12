@@ -1,5 +1,6 @@
-import React, { useCallback } from "react";
 import clsx from "clsx";
+import React, { useCallback } from "react";
+
 import styles from "./styles.module.css";
 
 interface FieldCheckboxProps<T extends string> {

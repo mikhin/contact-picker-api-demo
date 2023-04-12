@@ -1,53 +1,69 @@
 import React from "react";
-import PageSection from "../PageSection/PageSection";
-import SettingsForm from "../SettingsForm/SettingsForm";
-import MoneyInput from "../MoneyInput/MoneyInput";
+
+import articleTextImage from "../../assets/images/article.svg";
+import moneyTextImage from "../../assets/images/money.svg";
+import peopleTextImage from "../../assets/images/people.svg";
+import settingsTextImage from "../../assets/images/settings.svg";
+import sorryTextImage from "../../assets/images/sorry.svg";
+import { isContactsSupported } from "../../constants";
+import ApiNotAvailableMessage from "../ApiNotAvailableMessage/ApiNotAvailableMessage";
 import ArticleLink from "../ArticleLink/ArticleLink";
 import ContactsList from "../ContactsList/ContactsList";
-import ApiNotAvailableMessage from "../ApiNotAvailableMessage/ApiNotAvailableMessage";
-import { isContactsSupported } from "../../constants";
+import MoneyInput from "../MoneyInput/MoneyInput";
+import PageSection from "../PageSection/PageSection";
+import SettingsForm from "../SettingsForm/SettingsForm";
 
 const HomePage = (): JSX.Element => {
   return (
-    <ul className="grid gap-y-6 lg:grid-cols-2 lg:gap-y-9">
+    <ul className="grid gap-10 lg:grid-cols-2">
       {!isContactsSupported && (
         <li className="lg:col-span-2">
-          <PageSection title="Sorry" titleColor="text-pink-100">
-            <ApiNotAvailableMessage />
+          <PageSection icon={sorryTextImage} minHeight={260}>
+            <div className="mt-10 lg:mt-20">
+              <ApiNotAvailableMessage />
+            </div>
           </PageSection>
         </li>
       )}
 
       <li>
         <PageSection
-          title="Money"
-          titleColor="text-orange"
+          icon={moneyTextImage}
           isDisabled={!isContactsSupported}
+          minHeight={235}
         >
-          <MoneyInput />
+          <div className="mt-16">
+            <MoneyInput />
+          </div>
         </PageSection>
       </li>
       <li>
         <PageSection
-          title="People"
-          titleColor="text-green-100"
+          icon={peopleTextImage}
           isDisabled={!isContactsSupported}
+          minHeight={235}
         >
-          <ContactsList />
+          <div className="mt-16">
+            <ContactsList />
+          </div>
         </PageSection>
       </li>
       <li>
         <PageSection
-          title="Settings"
-          titleColor="text-green-200"
+          icon={settingsTextImage}
           isDisabled={!isContactsSupported}
+          minHeight={180}
         >
-          <SettingsForm />
+          <div className="mt-16 lg:mt-12">
+            <SettingsForm />
+          </div>
         </PageSection>
       </li>
       <li>
-        <PageSection title="Article" titleColor="text-turquoise">
-          <ArticleLink />
+        <PageSection icon={articleTextImage} minHeight={215}>
+          <div className="mt-12">
+            <ArticleLink />
+          </div>
         </PageSection>
       </li>
     </ul>

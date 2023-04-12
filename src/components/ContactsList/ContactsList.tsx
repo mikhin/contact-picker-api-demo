@@ -1,14 +1,15 @@
-import React, { useCallback } from "react";
 import { useStore } from "@nanostores/react";
-import Button from "../Button/Button";
-import ContactsTable from "../ContactsTable/ContactsTable";
-import { contactsStore } from "../../stores/contacts-store";
+import React, { useCallback } from "react";
+
 import { isContactsSupported } from "../../constants";
+import { contactsStore } from "../../stores/contacts-store";
 import {
   ifSettingsNotSelectedStore,
   selectedPropertiesStore,
   settingsStore,
 } from "../../stores/settings-store";
+import Button from "../Button/Button";
+import ContactsTable from "../ContactsTable/ContactsTable";
 
 const ContactsList = (): JSX.Element => {
   const ifSettingsNotSelected = useStore(ifSettingsNotSelectedStore);
@@ -37,13 +38,13 @@ const ContactsList = (): JSX.Element => {
           <Button size="lg" isDisabled={isDisabled} onClick={handlePickClick}>
             Pick
           </Button>
-          <h3
+          {/* <h3
             className={`mt-4 text-center text-xs ${
               isDisabled ? "text-gray" : ""
             }`}
           >
             This demo does not keep any of your data. At all.
-          </h3>
+          </h3> */}
         </>
       )}
 

@@ -1,8 +1,9 @@
+import "./index.css";
+
 import React from "react";
 
-import "./index.css";
-import Layout from "./components/Layout/Layout";
 import HomePage from "./components/HomePage/HomePage";
+import Layout from "./components/Layout/Layout";
 
 export function App(): JSX.Element {
   return (
