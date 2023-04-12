@@ -23,7 +23,9 @@ const PageSection = ({
       }}
     >
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 transform"
+        className={`absolute top-0 left-1/2 -translate-x-1/2 transform ${
+          isDisabled === true ? "grayscale" : ""
+        }`}
         dangerouslySetInnerHTML={{ __html: icon }}
       />
 
