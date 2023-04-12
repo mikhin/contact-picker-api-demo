@@ -24,7 +24,7 @@ const ApiNotAvailableMessage = (): JSX.Element => {
         This browser doesn’t support the Contact Picker API, which required for
         this demo.{" "}
         <a
-          className="underline decoration-dashed outline-2 outline-offset-[3px] outline-black hover:opacity-50"
+          className="underline decoration-dashed outline-2 outline-offset-[3px] outline-black hover:opacity-70"
           href="#how-to-activate"
           onClick={handleHelpClick}
         >

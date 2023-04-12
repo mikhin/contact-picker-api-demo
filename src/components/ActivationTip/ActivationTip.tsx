@@ -13,7 +13,7 @@ const ActivationTip = (): JSX.Element => {
           href="https://caniuse.com/mdn-api_contactsmanager"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline outline-2 outline-offset-[4px] outline-black hover:opacity-50"
+          className="underline outline-2 outline-offset-[4px] outline-black hover:opacity-70"
         >
           https://caniuse.com/mdn-api_contactsmanager
         </a>
