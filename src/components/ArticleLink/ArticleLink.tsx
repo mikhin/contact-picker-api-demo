@@ -10,7 +10,7 @@ const ArticleLink = (): JSX.Element => {
         target="_blank"
         rel="noopener noreferrer"
         style={{ backgroundImage: `url('${externalLinkIcon}')` }}
-        className="block border-2 bg-[right_24px_center] bg-no-repeat py-4 pr-14 pl-6 text-xl outline-2 outline-offset-[6px] outline-black"
+        className="block border-2 bg-[right_24px_center] bg-no-repeat py-4 pr-14 pl-6 text-xl outline-2 outline-offset-[6px] outline-black hover:opacity-50"
       >
         Don&apos;t wait, let&apos;s use the browser Contact Picker API now
       </a>

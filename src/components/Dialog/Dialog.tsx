@@ -26,7 +26,7 @@ const Dialog = ({
       >
         <button
           onClick={onClose}
-          className="interactive absolute top-0 right-0 mt-2 mr-3 p-1 hover:opacity-70"
+          className="interactive absolute top-0 right-0 mt-2 mr-3 p-1 outline-2 outline-offset-[2px] outline-black hover:opacity-50"
         >
           CLOSE
         </button>
