@@ -16,13 +16,13 @@ const Dialog = ({
 }: DialogProps): JSX.Element => {
   return (
     <DialogOverlay
-      className="fixed inset-0 z-50 flex h-full w-full flex-col overflow-auto bg-slate-50 bg-opacity-70 px-4 py-20"
+      className="fixed inset-0 z-50 flex h-full w-full flex-col overflow-auto bg-slate-50 bg-opacity-70 px-4 py-10"
       isOpen={opened}
       onDismiss={onClose}
     >
       <DialogContent
         aria-label={label}
-        className="relative mx-auto max-w-[480px] overflow-y-auto border-[3px] bg-white p-4 outline-none"
+        className="relative mx-auto max-w-xl overflow-y-auto border-[3px] bg-white p-10 outline-none"
       >
         <button
           onClick={onClose}
