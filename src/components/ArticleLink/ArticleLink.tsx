@@ -6,7 +6,7 @@ const ArticleLink = (): JSX.Element => {
   return (
     <div className="flex justify-center">
       <a
-        href="https://evilmartians.com/chronicles/contact-picker-api"
+        href="https://evilmartians.com/chronicles/dont-wait-lets-use-browser-contact-picker-api-now"
         target="_blank"
         rel="noopener noreferrer"
         style={{ backgroundImage: `url('${externalLinkIcon}')` }}
