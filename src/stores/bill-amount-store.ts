@@ -6,5 +6,6 @@ export const billAmountStore = atom<number>(0);
 
 export const billAmountPerPersonStore = computed(
   [billAmountStore, contactsStore],
-  (billAmount, contacts) => billAmount / (contacts?.length ?? 1)
+  (billAmount, contacts) =>
+    +parseFloat(String(billAmount / (contacts?.length ?? 1))).toFixed(2)
 );
