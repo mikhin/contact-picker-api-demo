@@ -11,7 +11,7 @@ const MoneyInput = (): JSX.Element => {
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>): void => {
       const newValue = Number(event.target.value);
-      if (newValue >= 0) billAmountStore.set(newValue);
+      if (newValue >= 0 && newValue <= 10000) billAmountStore.set(newValue);
     },
     []
   );
